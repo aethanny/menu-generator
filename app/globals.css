@@ -1,0 +1,50 @@
+:root {
+  --bg-dark: #0a0a0f;
+  --panel-bg: #15151c;
+  --text-light: #f5f5f5;
+  --primary: #ff4757;
+  --primary-hover: #ff6b81;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+}
+* { box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+body { margin: 0; background: var(--bg-dark); color: var(--text-light); display: flex; height: 100vh; overflow: hidden; }
+.app-container { display: flex; width: 100%; height: 100vh; }
+.editor-panel { width: 380px; background: var(--panel-bg); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; padding: 25px; z-index: 10; }
+.preview-panel { flex: 1; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #1e1e28 0%, var(--bg-dark) 100%); overflow-y: auto; padding: 40px; }
+
+h1 { font-size: 26px; margin-top: 0; color: var(--primary); font-weight: 800; letter-spacing: -0.5px; }
+.controls label { font-weight: 600; display: block; margin-bottom: 20px; font-size: 14px; }
+.controls select, .controls input[type="color"] { width: 100%; padding: 10px; margin-top: 5px; background: #000; border: 1px solid var(--border); color: #fff; border-radius: 8px; outline: none; cursor: pointer; }
+.controls input[type="color"] { height: 45px; padding: 5px; }
+.section-title { font-weight: 800; font-size: 16px; margin: 20px 0 10px; padding-bottom: 5px; border-bottom: 2px solid var(--border); color: #ccc; }
+.item-editor { background: var(--glass); padding: 10px; border-radius: 10px; margin-bottom: 10px; border: 1px solid var(--border); }
+.item-editor input { width: 100%; padding: 8px; margin-bottom: 8px; background: #000; border: 1px solid var(--border); color: #fff; border-radius: 6px; font-size: 13px; outline: none; }
+.item-editor input:focus { border-color: var(--primary); }
+.item-editor input[type="file"] { padding: 6px; background: transparent; border: 1px dashed var(--border); cursor: pointer; font-size: 11px; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: #fff; border: none; padding: 15px; border-radius: 10px; font-weight: 800; font-size: 16px; cursor: pointer; transition: 0.3s; margin-top: 30px; width: 100%; box-shadow: 0 5px 15px rgba(255,71,87,0.3); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,71,87,0.5); }
+.btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Canvas Area */
+.canvas-area { background: #111115; width: 900px; border-radius: 20px; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8); overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; transition: background 0.3s; }
+.status-banner { text-align: center; font-size: 28px; font-weight: 800; padding: 15px; letter-spacing: 4px; color: #fff; }
+.open-status .status-banner { background: #2ed573; color: #000; }
+.closed-status .status-banner { background: #ff4757; color: #fff; }
+
+.menu-content { padding: 25px 30px; display: flex; flex-direction: column; gap: 20px; }
+.menu-section h2 { color: #fff; margin: 0 0 15px 0; font-size: 22px; font-weight: 800; border-left: 5px solid var(--primary); padding-left: 10px; text-transform: uppercase; }
+
+.items-grid { display: grid; gap: 15px; }
+.food-grid { grid-template-columns: repeat(3, 1fr); }
+.side-drink-grid { grid-template-columns: repeat(5, 1fr); }
+
+.menu-item { background: rgba(0,0,0,0.4); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; }
+.menu-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.menu-item-info { padding: 12px; text-align: center; }
+.menu-item-name { font-weight: 800; font-size: 15px; margin-bottom: 5px; color: #fff; line-height: 1.1; }
+.menu-item-price { color: var(--primary); font-weight: 800; font-size: 14px; }
+
+.social-footer { background: rgba(0,0,0,0.6); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.cta { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 16px; color: #fff; }
+.cta img { width: 22px; height: 22px; }
